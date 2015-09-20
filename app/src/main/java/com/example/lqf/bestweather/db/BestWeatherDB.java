@@ -1,11 +1,10 @@
-package com.example.lqf.bestweather.util;
+package com.example.lqf.bestweather.db;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.lqf.bestweather.db.BestWeatherOpenHelper;
 import com.example.lqf.bestweather.model.City;
 import com.example.lqf.bestweather.model.County;
 import com.example.lqf.bestweather.model.Province;
