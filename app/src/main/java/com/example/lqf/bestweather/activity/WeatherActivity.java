@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.lqf.bestweather.R;
+import com.example.lqf.bestweather.receiver.AutoUpdateReceiver;
+import com.example.lqf.bestweather.service.AutoUpdateService;
 import com.example.lqf.bestweather.util.HttpCallbackListener;
 import com.example.lqf.bestweather.util.HttpUtil;
 import com.example.lqf.bestweather.util.Utility;
@@ -124,8 +126,10 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         temp2Text.setText(prefs.getString("temp2",""));
         weatherDespText.setText(prefs.getString("weather_desp",""));
         publishText.setText(prefs.getString("publish_time","")+"发布");
-        currentDateText.setText(prefs.getString("current_date",""));
+        currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        Intent intent=new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 }
