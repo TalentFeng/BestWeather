@@ -20,7 +20,7 @@ import com.example.lqf.bestweather.util.Utility;
 /**
  * Created by LQF on 2015/9/21.
  */
-public class WeatherAcitivity extends Activity implements View.OnClickListener {
+public class WeatherActivity extends Activity implements View.OnClickListener {
     private LinearLayout weatherInfoLayout;
     private TextView cityNameText;
     private TextView publishText;
@@ -101,7 +101,7 @@ public class WeatherAcitivity extends Activity implements View.OnClickListener {
                         }
                     }
                 } else if ("weatherCode".equals(type)) {
-                    Utility.handleWeatherResponse(WeatherAcitivity.this, response);
+                    Utility.handleWeatherResponse(WeatherActivity.this, response);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

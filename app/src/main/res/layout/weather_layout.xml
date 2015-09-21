@@ -9,13 +9,30 @@
         android:background="#484E61">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/city_name"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:background="#484E61"
             android:textSize="24sp"
+            android:textColor="#fff" />
+
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/switch_city"
+            android:textColor="#fff"
+            android:background="@drawable/ic_home_black_48dp"
+            android:layout_alignParentLeft="true"
+            />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/refresh_weather"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_refresh_black_48dp"
             android:textColor="#fff" />
     </RelativeLayout>
 
@@ -97,26 +114,6 @@
                     android:textColor="#fff" />
             </LinearLayout>
         </LinearLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="switch city"
-            android:id="@+id/switch_city"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#fff"
-            android:background="#27a5f9" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="refresh"
-            android:id="@+id/refresh_weather"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:background="#27a5f9"
-            android:textColor="#fff" />
 
     </RelativeLayout>
 

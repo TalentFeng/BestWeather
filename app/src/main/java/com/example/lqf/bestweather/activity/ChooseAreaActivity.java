@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -48,12 +47,16 @@ public class ChooseAreaActivity extends Activity {
     private City selectedCity;
     private County selectedCounty;
     private int currentLevel;
+    private boolean isFromWeatherActivity;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
-        if(prefs.getBoolean("selected_city",false)){
-            Intent intent=new Intent(ChooseAreaActivity.this,WeatherAcitivity.class);
+        if(getIntent().getBooleanExtra("from_weather_activity",false)){
+            isFromWeatherActivity=true;
+        }
+        if(prefs.getBoolean("selected_city",false)&&!isFromWeatherActivity){
+            Intent intent=new Intent(ChooseAreaActivity.this,WeatherActivity.class);
             startActivity(intent);
             finish();
             return;
@@ -75,7 +78,7 @@ public class ChooseAreaActivity extends Activity {
                     selectedCity=cityList.get(position);
                     queryCounties();
                 }else if(currentLevel==LEVEL_COUNTY){
-                    Intent intent=new Intent(ChooseAreaActivity.this,WeatherAcitivity.class);
+                    Intent intent=new Intent(ChooseAreaActivity.this,WeatherActivity.class);
                     intent.putExtra("county_code",countyList.get(position).getCountyCode());
                     startActivity(intent);
                     finish();
@@ -199,6 +202,11 @@ public class ChooseAreaActivity extends Activity {
         }else if(currentLevel==LEVEL_CITY){
             queryProvinces();
         }else {
+            if(isFromWeatherActivity) {
+                Intent intent=new Intent(this,WeatherActivity.class);
+                startActivity(intent);
+
+            }
             finish();
         }
     }
